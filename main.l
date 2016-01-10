@@ -12,7 +12,8 @@
 "read"      {return KW_READ_T;}
 "print"     {return KW_PRINT_T;}
 "int"       {return KW_INT_T;}
-[1-9][0-9]* {return INT_ID;}
+[1-9][0-9]* {return INT_T;}
+
 
 [_A-Za-z][A-Za-z0-9_]* {return STD_ID_T;}
 [ \t] { }

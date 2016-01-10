@@ -1,13 +1,13 @@
-lexer: main.o lex.yy.o
-	cc -ll main.o lex.yy.o -o lexer
-	rm main.o lex.yy.o
+lexer: b.o a.o
+	cc -ll a.o b.o -o lexer
+	rm a.o b.o
 
-main.o: main.c tokens.h
-	cc -c main.c
+a.o: main.c tokens.h
+	cc -c main.c -o a.o
 
-lex.yy.o: main.l tokens.h
+b.o: main.l tokens.h
 	flex main.l
-	cc -c lex.yy.c
+	cc -c lex.yy.c -o b.o
 
 clean:
 	rm lexer
