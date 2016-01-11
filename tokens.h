@@ -26,8 +26,5 @@ enum yytokentype{
     SYM_AND_T,
     SYM_OR_T,
 
-    CMT_START_T, // /*
-    CMT_END_T, // */
-    CMT_SINGLE_T,  // //
     EOL_T // \n
 };

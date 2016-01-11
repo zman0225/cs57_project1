@@ -1,8 +1,20 @@
 %{
     #include "tokens.h"
 %}
-
+%x multi_comment
+%x single_comment
 %%
+
+"//" {BEGIN(single_comment);}
+<single_comment>[^\n]
+<single_comment>\n {BEGIN(INITIAL);}
+
+"/*" {BEGIN(multi_comment);}
+<multi_comment>[^*\n]
+<multi_comment>"*"+[^*/\n] 
+<multi_comment>"*"+"/" {BEGIN(INITIAL);}
+
+(["].*["])|(['].*[']) {return STR_T;}
 "if"        {return KW_IF_T;}
 "else"      {return KW_ELSE_T;}
 "while"     {return KW_WHILE_T;}
@@ -29,8 +41,5 @@
 
 [+\-*<>;,()\[\]{}%!] {return (int)yytext[0]; }
 
-"//" {return CMT_SINGLE_T;}
-"/*" {return CMT_START_T;}
-"*/" {return CMT_END_T;}
 \n {return EOL_T;}
 %%
