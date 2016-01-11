@@ -18,13 +18,16 @@ int main(int argc, char **argv){
         return(1);
     }
 
-    if (!(yyin = fopen(argv[1], "r"))){
-        perror(argv[1]);
-        return(1);
+    for(int i = 1; i < argc; i++){
+        if (!(yyin = fopen(argv[i], "r"))){
+            perror(argv[i]);
+            return(1);
+        }
+
+        int tok;
+        while((tok = yylex())){
+            printf("[%s, %d]\n", yytext, tok);
+        }
     }
 
-    int tok;
-    while((tok = yylex())){
-        printf("[%s, %d]", yytext, tok);
-    }
 }

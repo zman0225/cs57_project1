@@ -6,13 +6,13 @@
 %%
 
 "//" {BEGIN(single_comment);}
-<single_comment>[^\n]
+<single_comment>.
 <single_comment>\n {BEGIN(INITIAL);}
 
 "/*" {BEGIN(multi_comment);}
-<multi_comment>[^*\n]
-<multi_comment>"*"+[^*/\n] 
-<multi_comment>"*"+"/" {BEGIN(INITIAL);}
+<multi_comment>.
+<multi_comment>\n
+<multi_comment>"*/" {BEGIN(INITIAL);}
 
 (["].*["])|(['].*[']) {return STR_T;}
 "if"        {return KW_IF_T;}
@@ -28,7 +28,7 @@
 
 
 [_A-Za-z][A-Za-z0-9_]* {return STD_ID_T;}
-[ \t] { }
+[ \t\n] { }
 
 "<=" {return SYM_LTE_T;}
 ">=" {return SYM_GTE_T;}
@@ -40,6 +40,4 @@
 "||" {return SYM_OR_T;}
 
 [+\-*<>;,()\[\]{}%!] {return (int)yytext[0]; }
-
-\n {return EOL_T;}
 %%
