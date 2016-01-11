@@ -23,11 +23,16 @@ int main(int argc, char **argv){
             perror(argv[i]);
             return(1);
         }
-
+        printf("Scanning %s\n", argv[i]);
         int tok;
         while((tok = yylex())){
+            if (tok == UNDEF_T) {
+                printf("[ERROR] '%s' not defined in language in %s\n", yytext, argv[i]);
+                continue;
+            }
             printf("[%s, %d]\n", yytext, tok);
         }
+        printf("\n\n");
     }
 
 }

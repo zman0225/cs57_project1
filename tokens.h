@@ -19,12 +19,14 @@ enum yytokentype{
     //<= >= == != ++ -- && ||
     SYM_LTE_T,
     SYM_GTE_T,
-    SYM_E_T,
+    SYM_EQ_T,
     SYM_NE_T,
     SYM_INCR_T,
     SYM_DECR_T,
     SYM_AND_T,
     SYM_OR_T,
 
-    EOL_T // \n
+    EOL_T, // \n
+
+    UNDEF_T // symbols not in the language
 };
