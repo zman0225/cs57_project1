@@ -1,3 +1,9 @@
+/*
+FILENAME: tokens.h
+This is h file that contains all the token values
+AUTHORS: Ziyuan Liu, Peter Loomis
+Instructions from CS57 2016W and Flex and Bison
+*/
 enum yytokentype{
     STD_ID_T=258,
     INT_T,

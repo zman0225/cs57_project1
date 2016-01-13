@@ -1,3 +1,8 @@
+/*FILENAME: lex.l
+This is lex file that contains the regex token values required to return for each matched token
+AUTHORS: Ziyuan Liu, Peter Loomis
+Instructions from CS57 2016W and Flex and Bison*/
+
 %{
     #include "tokens.h"
 %}

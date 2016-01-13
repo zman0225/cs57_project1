@@ -1,12 +1,13 @@
 lexer: b.o a.o
-	cc -ll b.o a.o -o lexer
+	gcc -ll b.o a.o -o lexer
+	rm b.o a.o
 
 a.o: lexer.c tokens.h
-	cc -c lexer.c -o a.o
+	gcc -c lexer.c -o a.o
 
 b.o: lex.l tokens.h
 	flex lex.l
-	cc -c lex.yy.c -o b.o
+	gcc -c lex.yy.c -o b.o
 
 clean:
 	rm lexer
