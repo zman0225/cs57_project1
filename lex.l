@@ -33,7 +33,7 @@ Instructions from CS57 2016W and Flex and Bison*/
 
 [_A-Za-z][A-Za-z0-9_]* {return STD_ID_T;}
 
-[1-9][0-9]* {return INT_T;}
+0|[1-9][0-9]* {return INT_T;}
 [ \t\n] { }
 
 "<=" {return SYM_LTE_T;}

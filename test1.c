@@ -12,14 +12,8 @@ int main(int argc){
         /* code */
     }
 
-    // unrecognized symbols
+    // unrecognized symbols, print Keyword
     print("the~.....~re are %4d arguments", --argc);
-
-    // standard identifier tests
-    char _Abc = 'a'; // valid
-    char ab4 = 'a'; // valid
-    char somestring[] = "hello" // valid
-    char 44krampus = 'a'; // invalid
 
     // int token
     int numApples = 44;
