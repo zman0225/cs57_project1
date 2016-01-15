@@ -27,7 +27,7 @@ int main(int argc, char **argv){
         int tok;
         while((tok = yylex())){
             if (tok == UNDEF_T) {
-                printf("[ERROR] '%s' not defined in language in %s\n", yytext, argv[i]);
+                printf("'%s' not defined in language in %s\n", yytext, argv[i]);
                 continue;
             }
             printf("[%s, %d]\n", yytext, tok);

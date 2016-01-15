@@ -19,7 +19,7 @@ Instructions from CS57 2016W and Flex and Bison*/
 <multi_comment>\n
 <multi_comment>"*/" {BEGIN(INITIAL);}
 
-(["].*["])|(['].*[']) {return STR_T;}
+\"[^"]*\"|\'[^']*\' {return STR_T;}
 "if"        {return KW_IF_T;}
 "else"      {return KW_ELSE_T;}
 "while"     {return KW_WHILE_T;}
